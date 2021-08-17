@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SATUser</string>
+
+    <string-array name="asunto">
+        <item>Seleccione</item>
+        <item>Peticion</item>
+        <item>Queja</item>
+        <item>Reclamo</item>
+        <item>Otro</item>
+    </string-array>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
