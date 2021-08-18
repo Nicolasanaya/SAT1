@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeFragmento" android:title="Home" android:icon="@drawable/ic_home"/>
+    <item android:id="@+id/tareasFragmento" android:title="Tareas" android:icon="@drawable/ic_check_box"/>
+    <item android:id="@+id/reportesFragmento" android:title="Reportes" android:icon="@drawable/ic_notes"/>
+    <item android:id="@+id/notificacionesFragmento" android:title="Notificaciones" android:icon="@drawable/ic_notifications"/>
+    <item android:id="@+id/perfilFragmento" android:title="Perfil" android:icon="@drawable/ic_person"/>
+</menu>
