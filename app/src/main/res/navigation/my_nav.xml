@@ -30,4 +30,9 @@
         android:name="com.example.sat.PerfilFragmento"
         android:label="PERFIL"
         tools:layout="@layout/fragment_perfil_fragmento" />
+    <activity
+        android:id="@+id/solicitudActivity"
+        android:name="com.example.sat.SolicitudActivity"
+        android:label="activity_solicitud"
+        tools:layout="@layout/activity_solicitud" />
 </navigation>

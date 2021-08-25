@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="SAT"
         android:textColor="#1392C6"
         android:textSize="30sp"
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="Sistema de Alerta Temprana"
         android:textColor="#6DBBDF"
         android:textSize="20sp"
@@ -48,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="Usuario"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -56,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etUsuario"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
@@ -64,7 +67,8 @@
         android:background="@drawable/edittext_redondeado"
         android:drawableLeft="@drawable/ic_user"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:fontFamily="@font/roboto_bold"
+        android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -74,15 +78,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="Clave"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etClave"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
@@ -90,6 +95,7 @@
         android:background="@drawable/edittext_redondeado"
         android:drawableLeft="@drawable/ic_clave"
         android:ems="10"
+        android:fontFamily="@font/roboto_bold"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -102,12 +108,13 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/bordes_redondos"
+        android:fontFamily="@font/roboto_bold"
+        android:onClick="BtnIniciar_Click"
         android:text="Iniciar Sesion"
         android:textColor="@android:color/white"
-        android:onClick="BtnIniciar_Click"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
 
     <ImageView
         android:id="@+id/imageView2"
