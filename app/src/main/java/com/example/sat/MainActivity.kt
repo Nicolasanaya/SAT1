@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         if (correo && contraseña){
             val user:String = etUsuario.text.toString()
             val pass:String = etClave.text.toString()
-            if (user.equals("nicolasanaya_s@hotmail.com")&&pass.equals("Hola12345")){
+            if (user.equals("nicolasanaya_s@hotmail.com")&&pass.equals("1") || user.equals("rene@gmail.com")&&pass.equals("1") || user.equals("ivan@gmail.com")&&pass.equals("1")){
                 val intento1 = Intent(this, PrincipalActivity::class.java)
                 startActivity(intento1)
             }else{

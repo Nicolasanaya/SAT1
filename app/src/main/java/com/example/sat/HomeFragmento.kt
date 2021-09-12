@@ -1,14 +1,23 @@
 package com.example.sat
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_home_fragmento.*
+import java.nio.file.DirectoryStream
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
+var listaCasos: List<Casos>? = null
+var adaptador: CasosAdapter? = null
 private const val ARG_PARAM2 = "param2"
 
 /**
@@ -16,25 +25,41 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragmento.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragmento : Fragment() {
+class HomeFragmento : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
+
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_fragmento, container, false)
+
+        val view: View =  inflater!!.inflate(R.layout.fragment_home_fragmento, container, false)
+//        val btn:ImageButton =view.findViewById(R.id.ivSearch)
+//        btn.setOnClickListener(this)
+        return view
+
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        adapter()
     }
 
     companion object {
@@ -53,7 +78,43 @@ class HomeFragmento : Fragment() {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
+
                 }
             }
     }
+
+    fun adapter (){
+        val caso = Casos("Computadora HP dv15","Formateo",  R.drawable.verde)
+        val caso1 = Casos("Lenovo17","Reparacion",R.drawable.rojo)
+        val caso2 = Casos("Asus Ultra Book","Mantenimiento",R.drawable.amarillo)
+
+        listaCasos = listOf(caso,caso1,caso2)
+
+        adaptador = CasosAdapter(requireContext(), listaCasos!!)
+
+        listviewCasos.adapter = adaptador
+
+        listviewCasos.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                //ACTIVITY
+                val intent = Intent(requireContext(), SolicitudActivity::class.java)
+                startActivity(intent)
+            }
+    }
+
+    override fun onClick(v: View?) {
+//        when (v?.id) {
+//            R.id.ivSearch -> {
+//                adapter ()
+//            }
+//            else -> {
+//                Toast.makeText(context, "NO ESTA FUNCIONANDO", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//            }
+//
+//        }
+    }
 }
+
+

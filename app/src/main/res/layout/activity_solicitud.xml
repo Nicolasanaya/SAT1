@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SolicitudActivity">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="53dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:rotationY="180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/flecha" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="198dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo" />
-
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="12dp"
-        android:text="REPORTES"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    android:orientation="vertical"
+    tools:context=".SolicitudActivity"
+    android:weightSum="2">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/nombre"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center|center_vertical"
+            android:foregroundGravity="center"
+            app:srcCompat="@mipmap/logo" />
+
+        <TextView
+            android:id="@+id/tvnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="REPORTES"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.7"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -60,72 +58,81 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvcaso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="CASO"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                <Spinner
+                    android:id="@+id/spCaso"
                     android:layout_width="380dp"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edittext_redondeado"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_bold"
+                    android:entries="@array/asunto"
                     android:inputType="textPersonName" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/tvEtiqueta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="ETIQUETA"
                     android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:text="ETIQUETA" />
+                    android:textSize="16sp" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spEtiqueta"
                     android:layout_width="380dp"
                     android:layout_height="35dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edittext_redondeado"
                     android:entries="@array/asunto" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvDescripcion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="DESCRIPCION"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editTextTextMultiLine"
+                    android:id="@+id/edDescripcion"
                     android:layout_width="380dp"
-                    android:layout_height="15dp"
+                    android:layout_height="150dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edittext_redondeado"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_bold"
                     android:gravity="start|top"
                     android:inputType="textMultiLine" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/tvArchivo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="ARCHIVO"
                     android:textColor="#000000"
                     android:textSize="16sp" />
@@ -139,15 +146,18 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bordes_redondos"
                     android:backgroundTint="#FFF7F7"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="ARCHIVO"
+                    android:onClick="openFile_Click"
                     android:textColor="@android:color/white" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/tvImagen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="IMAGEN"
                     android:textColor="#000000"
                     android:textSize="16sp" />
@@ -161,27 +171,30 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/bordes_redondos"
                     android:backgroundTint="#FFF7F7"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="cARGAR IMAGEN"
                     android:textColor="@android:color/white" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="URL"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName4"
+                    android:id="@+id/edUrl"
                     android:layout_width="380dp"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edittext_redondeado"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_bold"
                     android:inputType="textPersonName" />
 
                 <Button
@@ -192,10 +205,15 @@
                     android:layout_marginStart="104dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bordes_redondos"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="enviar"
+                    android:onClick="enviar_click"
                     android:textColor="@android:color/white" />
             </LinearLayout>
+
         </ScrollView>
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
