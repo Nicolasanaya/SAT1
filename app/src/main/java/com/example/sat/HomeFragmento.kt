@@ -2,21 +2,24 @@ package com.example.sat
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.beust.klaxon.Klaxon
 import kotlinx.android.synthetic.main.fragment_home_fragmento.*
-import java.nio.file.DirectoryStream
+
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
-var listaCasos: List<Casos>? = null
+//var listamuta: MutableList<Casos>? = null
+var listaCasos: List<casesAndLabels>? = null
 var adaptador: CasosAdapter? = null
 private const val ARG_PARAM2 = "param2"
 
@@ -84,15 +87,46 @@ class HomeFragmento : Fragment(), View.OnClickListener {
     }
 
     fun adapter (){
-        val caso = Casos("Computadora HP dv15","Formateo",  R.drawable.verde)
-        val caso1 = Casos("Lenovo17","Reparacion",R.drawable.rojo)
-        val caso2 = Casos("Asus Ultra Book","Mantenimiento",R.drawable.amarillo)
+        var listaCasosi = mutableListOf<String>()
 
-        listaCasos = listOf(caso,caso1,caso2)
+        val url1 = "https://api.apiupbateneo.xyz/CasesAndLabels/list"
 
-        adaptador = CasosAdapter(requireContext(), listaCasos!!)
+        val queue = Volley.newRequestQueue(context)
+        var arrayAdapter:ArrayAdapter<*>
 
-        listviewCasos.adapter = adaptador
+        val stringRequest1 = StringRequest(Request.Method.GET,url1, {
+                response ->  val klaxonC = Klaxon().parseArray<bueno>(response)
+
+            if (klaxonC != null) {
+//                for (element in klaxonC){
+//                   listaCasosi.add(element.case_Name)
+//                   listaCasosi.add(element.label_Name)
+//                }
+
+                Toast.makeText(context, response, Toast.LENGTH_SHORT).show()
+
+
+   //             Toast.makeText(context, listaCasos, Toast.LENGTH_SHORT).show()
+
+//                adaptador = CasosAdapter(requireContext(), listaCasos!!)
+//
+//                listviewCasos.adapter = adaptador
+
+            }
+
+        }, { Toast.makeText(context, "algo salio mal", Toast.LENGTH_SHORT).show() })
+
+        queue.add(stringRequest1)
+
+//        val caso = Casos("Computadora HP dv15","Formateo",  R.drawable.verde)
+//        val caso1 = Casos("Lenovo17","Reparacion",R.drawable.rojo)
+//        val caso2 = Casos("Asus Ultra Book","Mantenimiento",R.drawable.amarillo)
+
+//        listamuta = listOf(listdeCasos)
+
+//        adaptador = CasosAdapter(requireContext(), listaCasos!!)
+
+//        listviewCasos.adapter = adaptador
 
         listviewCasos.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
@@ -101,6 +135,42 @@ class HomeFragmento : Fragment(), View.OnClickListener {
                 startActivity(intent)
             }
     }
+
+//    fun listLLamado(){
+////        val listanueva = mutableListOf("Multa${listCodigo}")
+//
+//        val url1 = "https://api.apiupbateneo.xyz/Cases/list"
+//
+//        val queue = Volley.newRequestQueue(context)
+//        var arrayAdapter:ArrayAdapter<*>
+//
+//
+//        val stringRequest1 = StringRequest(Request.Builder.method(),url1, {
+//                response ->  val klaxonC = Klaxon().parseArray(Casos).(response)
+//
+//            if (klaxonC != null) {
+//                for (element in klaxonC){
+//                    listaCasos.add(element.id.toString())
+////                    listCodigo.add(element.codigo)
+//                }
+////                arrayAdapter = ArrayAdapter(context,android.R.layout.simple_expandable_list_item_1,listaCasos)
+//////                val arrayAdapter = ListAdapter(this,listanueva)
+//
+//                listviewCasos.adapter = adaptador
+//
+//            }
+//
+//        }, { Toast.makeText(context, "algo salio mal", Toast.LENGTH_SHORT).show() })
+//
+//        queue.add(stringRequest1)
+//
+//        lvdatos.setOnItemClickListener { parent, view, position, id ->
+//            val intent = Intent(this, ConsultaActivity::class.java)
+//            intent.putExtra("id", listCodigo[position])
+//            startActivity(intent)
+//        }
+//
+//    }
 
     override fun onClick(v: View?) {
 //        when (v?.id) {
